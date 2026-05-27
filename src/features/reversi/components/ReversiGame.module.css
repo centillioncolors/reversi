@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 560px;
+  padding: 24px;
+  margin: 0 auto;
+  animation: pageFadeIn 600ms var(--easing-standard);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(
+    135deg,
+    hsl(210, 40%, 98%) 0%,
+    hsl(140, 35%, 60%) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  font-weight: 400;
+  opacity: 0.5;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

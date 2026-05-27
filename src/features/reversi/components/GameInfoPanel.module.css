@@ -1,0 +1,140 @@
+.panel {
+  width: 100%;
+  max-width: 520px;
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-panel);
+  padding: 16px 24px;
+  box-shadow: 0 12px 36px hsla(0, 0%, 0%, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-glass-highlight),
+    transparent
+  );
+}
+
+.mainInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.turnContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.turnText {
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.stoneIndicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.stoneIndicator.black {
+  background: radial-gradient(
+    circle at 35% 35%,
+    var(--color-stone-black-highlight) 0%,
+    var(--color-stone-black) 80%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stoneIndicator.white {
+  background: radial-gradient(
+    circle at 35% 35%,
+    var(--color-stone-white-highlight) 0%,
+    var(--color-stone-white) 80%
+  );
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.scoreContainer {
+  display: flex;
+  gap: 20px;
+}
+
+.scoreBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 6px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.scoreLabel {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.scoreLabel.black {
+  background-color: var(--color-stone-black);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.scoreLabel.white {
+  background-color: var(--color-stone-white);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.scoreValue {
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Pass Message Area */
+.passMessageContainer {
+  background: hsla(360, 70%, 40%, 0.15);
+  border: 1px solid hsla(360, 70%, 50%, 0.3);
+  padding: 8px 16px;
+  border-radius: 10px;
+  text-align: center;
+  animation: slideDown 300ms var(--easing-standard) forwards;
+}
+
+.passText {
+  color: hsl(360, 90%, 75%);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

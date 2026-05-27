@@ -1,0 +1,193 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(4, 9, 20, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  opacity: 0;
+  animation: fadeIn 300ms var(--easing-standard) forwards;
+}
+
+.dialog {
+  background: hsla(222, 47%, 16%, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-panel);
+  padding: 36px 30px;
+  box-shadow: var(--shadow-board);
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  transform: scale(0.9) translateY(20px);
+  opacity: 0;
+  animation: scaleUp 400ms var(--easing-standard) forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.dialog::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.winnerBlack {
+  background: linear-gradient(
+    135deg,
+    hsl(210, 40%, 98%) 0%,
+    hsl(210, 10%, 60%) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.winnerWhite {
+  background: linear-gradient(
+    135deg,
+    hsl(45, 90%, 90%) 0%,
+    hsl(45, 90%, 65%) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.winnerDraw {
+  background: linear-gradient(
+    135deg,
+    hsl(210, 10%, 80%) 0%,
+    hsl(210, 5%, 50%) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.scoreContainer {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  width: 100%;
+}
+
+.scoreItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stone {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.stone.black {
+  background: radial-gradient(
+    circle at 35% 35%,
+    var(--color-stone-black-highlight) 0%,
+    var(--color-stone-black) 75%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stone.white {
+  background: radial-gradient(
+    circle at 35% 35%,
+    var(--color-stone-white-highlight) 0%,
+    var(--color-stone-white) 75%
+  );
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.stoneName {
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.stoneCount {
+  font-size: 2.2rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.button {
+  background: linear-gradient(
+    135deg,
+    var(--color-board-light) 0%,
+    var(--color-board) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--foreground);
+  width: 100%;
+  padding: 14px 28px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: all var(--duration-normal) var(--easing-standard);
+  margin-top: 8px;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.25);
+  background: linear-gradient(
+    135deg,
+    hsl(140, 35%, 36%) 0%,
+    hsl(140, 40%, 28%) 100%
+  );
+}
+
+.button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
