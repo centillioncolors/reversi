@@ -59,16 +59,16 @@ export const GameSettingsDialog: React.FC<GameSettingsDialogProps> = ({
           <label className={styles.label}>モード</label>
           <div className={styles.toggleGroup}>
             <button
-              className={`${styles.toggleButton} ${localMode === "pvp" ? styles.active : ""}`}
-              onClick={() => setLocalMode("pvp")}
-            >
-              2人対戦 (PvP)
-            </button>
-            <button
               className={`${styles.toggleButton} ${localMode === "cpu" ? styles.active : ""}`}
               onClick={() => setLocalMode("cpu")}
             >
               CPU対戦
+            </button>
+            <button
+              className={`${styles.toggleButton} ${localMode === "pvp" ? styles.active : ""}`}
+              onClick={() => setLocalMode("pvp")}
+            >
+              2人対戦 (PvP)
             </button>
           </div>
         </div>

@@ -4,7 +4,7 @@ import { GameSettings } from "../types/reversi";
 const SETTINGS_STORAGE_KEY = "reversi_game_settings";
 
 const DEFAULT_SETTINGS: GameSettings = {
-  mode: "pvp",
+  mode: "cpu",
   difficulty: "normal",
   playerColor: "black",
 };

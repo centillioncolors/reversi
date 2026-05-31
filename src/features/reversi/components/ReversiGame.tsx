@@ -95,7 +95,7 @@ export const ReversiGame: React.FC = () => {
 
       <ConfirmDialog
         isOpen={isResetConfirmOpen}
-        message="現在の対局をリセットして対局開始画面に戻しますか？"
+        message="現在の対局をリセットして対局開始画面に戻りますか？"
         onConfirm={() => {
           resetGame();
           setIsResetConfirmOpen(false);
