@@ -65,7 +65,7 @@ export const GameResultDialog: React.FC<GameResultDialogProps> = ({
 
         {/* Restart button */}
         <button className={styles.button} onClick={onReset}>
-          もう一度遊ぶ
+          対局開始画面に戻る
         </button>
       </div>
     </div>

@@ -1,13 +1,12 @@
 import { describe, it, expect } from "vitest";
-import { createInitialGameState, applyMove, isGameOver } from "../game";
-import { createInitialBoard } from "../board";
+import { createInitialGameState, applyMove } from "../game";
 
 describe("game flow logic", () => {
   it("should create correct initial game state", () => {
     const state = createInitialGameState();
 
     expect(state.currentPlayer).toBe("black");
-    expect(state.status).toBe("playing");
+    expect(state.status).toBe("idle");
     expect(state.winner).toBeNull();
     expect(state.lastMove).toBeNull();
     expect(state.moveHistory.length).toBe(0);
@@ -16,7 +15,7 @@ describe("game flow logic", () => {
   });
 
   it("should apply valid move and transition turn", () => {
-    const state = createInitialGameState();
+    const state = { ...createInitialGameState(), status: "playing" as const };
     // Black places at [2][3]
     const nextState = applyMove(state, { row: 2, col: 3 });
 

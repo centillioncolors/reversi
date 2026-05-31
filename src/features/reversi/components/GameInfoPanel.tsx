@@ -9,6 +9,7 @@ type GameInfoPanelProps = {
   score: Score;
   status: GameStatus;
   passMessage: string | null;
+  isCpuThinking?: boolean;
 };
 
 export const GameInfoPanel: React.FC<GameInfoPanelProps> = ({
@@ -16,6 +17,7 @@ export const GameInfoPanel: React.FC<GameInfoPanelProps> = ({
   score,
   status,
   passMessage,
+  isCpuThinking = false,
 }) => {
   const getPlayerName = (stone: Stone) => {
     return stone === "black" ? "黒" : "白";
@@ -30,12 +32,22 @@ export const GameInfoPanel: React.FC<GameInfoPanelProps> = ({
             className={`${styles.stoneIndicator} ${
               currentPlayer === "black" ? styles.black : styles.white
             }`}
+            style={{ opacity: status === "idle" ? 0 : 1 }}
           />
           <span className={styles.turnText}>
-            {status === "playing"
+            {status === "idle"
+              ? "「対局開始」を押してください"
+              : status === "playing"
               ? `${getPlayerName(currentPlayer)}の番です`
               : "対局終了"}
           </span>
+          {isCpuThinking && (
+            <span className={styles.thinkingIndicator}>
+              <span className={styles.dot}>.</span>
+              <span className={styles.dot}>.</span>
+              <span className={styles.dot}>.</span>
+            </span>
+          )}
         </div>
 
         {/* Scores */}

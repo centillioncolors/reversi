@@ -21,7 +21,7 @@ export type Score = {
 
 export type Winner = Stone | "draw" | null;
 
-export type GameStatus = "playing" | "finished";
+export type GameStatus = "idle" | "playing" | "finished";
 
 export type MoveRecord = {
   player: Stone;
@@ -40,4 +40,27 @@ export type GameState = {
   validMoves: Position[];
   moveHistory: MoveRecord[];
   passMessage: string | null;
+};
+
+export type GameMode = "pvp" | "cpu";
+export type Difficulty = "easy" | "normal" | "hard";
+
+export type GameSettings = {
+  mode: GameMode;
+  difficulty: Difficulty;
+  playerColor: Stone; // Color the human plays when in CPU mode
+};
+
+export type StatRecord = {
+  wins: number;
+  losses: number;
+  draws: number;
+};
+
+export type GameStats = {
+  cpu: {
+    easy: StatRecord;
+    normal: StatRecord;
+    hard: StatRecord;
+  };
 };

@@ -8,16 +8,14 @@ import { calculateScore, determineWinner } from "./scoring";
  */
 export function createInitialGameState(): GameState {
   const board = createInitialBoard();
-  const currentPlayer: Stone = "black";
-  const validMoves = getValidMoves(board, currentPlayer);
 
   return {
     board,
-    currentPlayer,
-    status: "playing",
+    currentPlayer: "black",
+    status: "idle",
     winner: null,
     lastMove: null,
-    validMoves,
+    validMoves: getValidMoves(board, "black"),
     moveHistory: [],
     passMessage: null,
   };
@@ -43,8 +41,8 @@ export function isGameOver(board: Board): boolean {
  * If the move is invalid or the game is already finished, it returns the state unchanged.
  */
 export function applyMove(gameState: GameState, position: Position): GameState {
-  // 1. If the game is already finished, return the current state
-  if (gameState.status === "finished") {
+  // 1. If the game is not playing (e.g. idle or finished), return the current state
+  if (gameState.status !== "playing") {
     return gameState;
   }
 
